@@ -2,7 +2,7 @@ let minutesData = [];
 
 async function init(){
 
-const response = await fetch("minutes.json");
+const response = await fetch("minutes.json?nocache=" + Date.now());
 minutesData = await response.json();
 
 updateLiveMinute();
