@@ -6,9 +6,11 @@ const response = await fetch("minutes.json");
 minutesData = await response.json();
 
 updateLiveMinute();
+updateStats();
+updateCountdown();
 
-// revisar cada 5 segundos si cambió el minuto
 setInterval(updateLiveMinute, 5000);
+setInterval(updateCountdown, 1000);
 
 }
 
@@ -22,7 +24,6 @@ now.getMinutes().toString().padStart(2,"0");
 
 let currentMinute = minutesData.find(m => m.time === currentTime);
 
-// fallback si no hay minuto en el json
 if(!currentMinute){
 currentMinute = {
 time: currentTime,
@@ -57,6 +58,28 @@ div.innerHTML = `
 upcomingDiv.appendChild(div);
 
 });
+
+}
+
+function updateStats(){
+
+const sold = minutesData.length;
+
+document.getElementById("sold").innerText =
+`Minutes sold: ${sold} / 525,600`;
+
+}
+
+function updateCountdown(){
+
+const now = new Date();
+
+const seconds = now.getSeconds();
+
+const remaining = 60 - seconds;
+
+document.getElementById("countdown").innerText =
+`Next minute in: ${remaining}s`;
 
 }
 
