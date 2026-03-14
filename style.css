@@ -1,0 +1,34 @@
+body{
+font-family: Arial;
+text-align:center;
+background:#111;
+color:white;
+}
+
+.live-box{
+border:2px solid white;
+padding:20px;
+margin:40px auto;
+width:300px;
+}
+
+#minute{
+font-size:24px;
+margin-bottom:10px;
+}
+
+#owner{
+font-weight:bold;
+}
+
+#upcoming{
+margin-top:40px;
+}
+
+.minute-card{
+border:1px solid gray;
+padding:10px;
+margin:10px;
+display:inline-block;
+width:150px;
+}
